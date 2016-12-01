@@ -3,7 +3,7 @@ package main
 import (
 	"flag"
 	"fmt"
-	ss "github.com/shadowsocks/shadowsocks-go/shadowsocks"
+	ss "github.com/onion007/shadowsocks-go/shadowsocks"
 	"io"
 	"math"
 	"net"
