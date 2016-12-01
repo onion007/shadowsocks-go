@@ -138,6 +138,20 @@ func newSalsa20Stream(key, iv []byte, _ DecOrEnc) (cipher.Stream, error) {
 	return &c, nil
 }
 
+type nullStreamCipher struct {
+	key	[32]byte
+}
+
+func (c *nullStreamCipher) XORKeyStream(dst, src []byte) {
+	copy(dst, src[:])
+}
+
+func newNullStream(key, iv []byte, _ DecOrEnc) (cipher.Stream, error) {
+	var c nullStreamCipher
+	//copy(c.key[:], key[:32])
+	return &c, nil
+}
+
 type cipherInfo struct {
 	keyLen    int
 	ivLen     int
@@ -154,6 +168,7 @@ var cipherMethod = map[string]*cipherInfo{
 	"rc4-md5":     {16, 16, newRC4MD5Stream},
 	"chacha20":    {32, 8, newChaCha20Stream},
 	"salsa20":     {32, 8, newSalsa20Stream},
+    "null":        {1, 0, newNullStream},
 }
 
 func CheckCipherMethod(method string) error {
