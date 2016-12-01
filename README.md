@@ -18,9 +18,9 @@ You can also install from source (assume you have go installed):
 
 ```
 # on server
-go get github.com/shadowsocks/shadowsocks-go/cmd/shadowsocks-server
+go get github.com/onion007/shadowsocks-go/cmd/shadowsocks-server
 # on client
-go get github.com/shadowsocks/shadowsocks-go/cmd/shadowsocks-local
+go get github.com/onion007/shadowsocks-go/cmd/shadowsocks-local
 ```
 
 It's recommended to disable cgo when compiling shadowsocks-go. This will prevent the go runtime from creating too many threads for dns lookup.

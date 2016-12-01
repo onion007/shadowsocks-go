@@ -168,7 +168,7 @@ var cipherMethod = map[string]*cipherInfo{
 	"rc4-md5":     {16, 16, newRC4MD5Stream},
 	"chacha20":    {32, 8, newChaCha20Stream},
 	"salsa20":     {32, 8, newSalsa20Stream},
-    "null":        {1, 0, newNullStream},
+	"null":        {1, 0, newNullStream},
 }
 
 func CheckCipherMethod(method string) error {
